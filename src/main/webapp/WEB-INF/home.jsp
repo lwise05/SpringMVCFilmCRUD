@@ -27,25 +27,22 @@ div {margin: 50px;}
 			<c:when test="${! empty film}">
 				<h3>${film.filmTitle}</h3>
 				<h3>${film.filmDesc}</h3>
-				<h3>${film.filmReleaseYear}</h3>
-				<h3>${film.filmLangId}</h3>
-				<h3>${film.filmLanguageName}</h3>
-				<h3>${film.filmRentDur}</h3>
-				<h3>${film.filmRentRate}</h3>
-				<h3>${film.filmFilmLength}</h3>
-				<h3>${film.filmReplCost}</h3>
-				<h3>${film.filmFilmRating}</h3>
-				<h3>${film.filmSpecFeat}</h3>
+				<h3>${film.releaseYear}</h3>
+				<h3>${film.langId}</h3>
+				<h3>${film.languageName}</h3>
+				<h3>${film.rentDur}</h3>
+				<h3>${film.rentRate}</h3>
+				<h3>${film.filmLength}</h3>
+				<h3>${film.replCost}</h3>
+				<h3>${film.filmRating}</h3>
+				<h3>${film.specFeat}</h3>
 			</c:when>
 			<c:otherwise>
 				<p>No film found.</p>
 			</c:otherwise>
 		</c:choose>
-
-
-
-
 	</div>
+
 
 
 </body>
