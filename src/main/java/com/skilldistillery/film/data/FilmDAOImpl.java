@@ -173,17 +173,28 @@ public class FilmDAOImpl implements FilmDAO {
 			conn = DriverManager.getConnection(URL, user, pass);
 			conn.setAutoCommit(false);
 
-			String query = "INSERT INTO film (title, language_id) VALUES (?, ?)";
+			String query = "INSERT INTO Film (title, description, release_year, language_id, rental_duration, rental_rate, ";
+					query+= " length, replacement_cost, rating, special_features) ";
+					query+= " VALUES (?,?,?,?,?,?,?,?,?,?)";
 
 			PreparedStatement stmt = conn.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
 			stmt.setString(1, newFilm.getFilmTitle());
-			stmt.setInt(2, 1);
+			stmt.setString(2, newFilm.getFilmDesc());
+			stmt.setInt(3, newFilm.getReleaseYear());
+			stmt.setInt(4, newFilm.getLangId());
+			stmt.setInt(5, newFilm.getRentDur());
+			stmt.setDouble(6, newFilm.getRentRate());
+			stmt.setInt(7, newFilm.getFilmLength());
+			stmt.setDouble(8, newFilm.getReplCost());
+			stmt.setString(9, newFilm.getFilmRating());
+			stmt.setString(10, newFilm.getSpecFeat());
 
 			int updateCount = stmt.executeUpdate();
 			if (updateCount == 1) {
 				ResultSet keys = stmt.getGeneratedKeys();
 				if (keys.next()) {
 					newFilm.setFilmId(keys.getInt(1));
+					
 				}
 			}
 
