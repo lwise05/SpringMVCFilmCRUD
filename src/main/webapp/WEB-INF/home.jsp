@@ -8,42 +8,48 @@
 body {background-color: #F0FFFF;}
 h1 {color: #2F4F4F; margin 25px;}
 div {margin: 50px;}
-
+li {}
 </style>
 <meta charset="UTF-8">
 <title>MVC Film Site</title>
 </head>
-<body>
 
 	<h1>Welcome to our Film Site</h1>
 
+<body>
 	<form action="GetFilmById.do" method="GET">
-		Film id: <input type="text" name="filmId" /> <input type="submit"
-			value="Get Film Data" />
+		Film id: <input type="text" name="filmId" /> 
+				 <input type="submit" value="Get Film Data" />
 
 	</form>
 	<div>
 		<c:choose>
 			<c:when test="${! empty film}">
-				<h3>Title: ${film.filmTitle}</h3>
-				<h3>Description: ${film.filmDesc}</h3>
-				<h3>Release Year: ${film.releaseYear}</h3>
-				<h3>Language: ${film.languageName}</h3>
-				<h3>Language ID: ${film.langId}</h3>
-				<h3>Rental Duration: ${film.rentDur}</h3>
-				<h3>Rental Rate: ${film.rentRate}</h3>
-				<h3>Length: ${film.filmLength}</h3>
-				<h3>Replacement Cost: ${film.replCost}</h3>
-				<h3>Rating: ${film.filmRating}</h3>
-				<h3>Special Features: ${film.specFeat}</h3>
+				<li>Title: ${film.filmTitle}</li>
+				<li>Description: ${film.filmDesc}</li>
+				<li>Release Year: ${film.releaseYear}</li>
+				<li>Language: ${film.languageName}</li>
+				<li>Language ID: ${film.langId}</li>
+				<li>Rental Duration: ${film.rentDur}</li>
+				<li>Rental Rate: ${film.rentRate}</li>
+				<li>Length: ${film.filmLength}</li>
+				<li>Replacement Cost: ${film.replCost}</li>
+				<li>Rating: ${film.filmRating}</li>
+				<li>Special Features: ${film.specFeat}</li>
+				<li>Actors from film: </li>
+				<ul>
+				<c:forEach var="actor" items="${film.actors}">
+				<li>${actor.firstName} ${actor.lastName}</li>
+				<li>Actor ID: ${actor.actorId}</li></c:forEach>
+				</ul>
 			</c:when>
-			<c:otherwise>
+			  <c:when test="${! empty SearchFailed }">
 				<p>No film found.</p>
+			  </c:when>
+			<c:otherwise>
 			</c:otherwise>
 		</c:choose>
 	</div>
-
-
 
 </body>
 </html>

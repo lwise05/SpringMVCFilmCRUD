@@ -23,6 +23,9 @@ public class FilmController {
 		ModelAndView mv = new ModelAndView();
 		Film film = filmDao.findFilmById(filmId);
 		mv.addObject("film", film);
+		if (film == null) {
+			mv.addObject("SearchFailed", "film not found");
+		}
 		mv.setViewName("home");
 		return mv;
 	}
