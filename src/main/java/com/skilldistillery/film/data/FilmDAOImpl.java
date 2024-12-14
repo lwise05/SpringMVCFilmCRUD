@@ -197,7 +197,7 @@ public class FilmDAOImpl implements FilmDAO {
 					
 				}
 			}
-
+			
 			conn.commit();
 
 		} catch (SQLException sqle) {
@@ -207,10 +207,11 @@ public class FilmDAOImpl implements FilmDAO {
 					conn.rollback();
 				} catch (SQLException e) {
 
-				}
 				System.out.println("Film addition failed.");
 				return null;
+				}
 			}
+			newFilm = null;
 		}
 		return newFilm;
 	}

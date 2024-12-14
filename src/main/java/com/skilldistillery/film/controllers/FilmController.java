@@ -42,9 +42,13 @@ public class FilmController {
 	public ModelAndView CreateFilm(Film film, RedirectAttributes redirect) {
 		ModelAndView mv = new ModelAndView();
 		Film newFilm = filmDao.createFilm(film);
-//		mv.addObject("film", filmDao.findFilmById(film.getFilmId()));
+		if(newFilm !=null) {
 		redirect.addFlashAttribute("film", filmDao.findFilmById(newFilm.getFilmId()));
 		mv.setViewName("redirect:CreateFilm.do");
+		}else {
+			//error jsp to showcase error with link to return to home.do
+		}
+		
 		return mv;
 	}
 	@RequestMapping(path = "CreateFilm.do", method= RequestMethod.GET)
@@ -56,15 +60,4 @@ public class FilmController {
 	}
 	
 	
-	
-//	@RequestMapping(path = "NewState.do", method = RequestMethod.POST)
-//	public ModelAndView createNewState(State state, RedirectAttributes redirect) {
-//		ModelAndView mv = new ModelAndView();
-//		stateDAO.addState(state);
-////		mv.addObject("state", state); 
-//		redirect.addFlashAttribute("state", state); // add this data to be displayed in the next request
-//		mv.setViewName("redirect:stateAdded.do");
-//		
-//		return mv;
-//	}
 }
