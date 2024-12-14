@@ -11,5 +11,26 @@
 
 <h1>Welcome to our Film Site</h1>
 
+<form action="GetFilmById.do" method = "GET">
+Film id:
+<input type = "text" name = "filmId"/>
+<input type= "submit" value = "Get Film Data"/>
+
+</form>
+<div>
+<c:choose>
+<c:when test="${! empty film}">
+<h1>${film.filmTitle}</h1>
+</c:when>
+
+
+</c:choose>
+
+
+
+
+</div>
+
+
 </body>
 </html>
