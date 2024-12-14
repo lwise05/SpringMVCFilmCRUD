@@ -21,7 +21,7 @@
 
 		<c:choose>
 			<c:when test="${! empty film}">
-				<li>Title: ${film.filmTitle}</li>
+				<h4>Title: ${film.filmTitle}</h4>
 				<li>Description: ${film.filmDesc}</li>
 				<li>Release Year: ${film.releaseYear}</li>
 				<li>Language: ${film.languageName}</li>
@@ -35,7 +35,7 @@
 				<li>Actors from film: </li>
 				<ul>
 				<c:forEach var="actor" items="${film.actors}">
-				<li>${actor.firstName} ${actor.lastName}</li>
+				<li><strong>${actor.firstName} ${actor.lastName}</strong></li>
 				<li>Actor ID: ${actor.actorId}</li></c:forEach>
 				</ul>
 			</c:when>
