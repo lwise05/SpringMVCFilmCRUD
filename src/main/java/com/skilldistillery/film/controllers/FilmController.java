@@ -35,7 +35,9 @@ public class FilmController {
 		if (film == null) {
 			mv.addObject("SearchFailed", "film not found");
 		}
-		mv.setViewName("home");
+		if (film != null) {
+			mv.setViewName("home");			
+		}
 		return mv;
 	}
 
@@ -48,21 +50,41 @@ public class FilmController {
 		redirect.addFlashAttribute("film", filmDao.findFilmById(newFilm.getFilmId()));
 		mv.setViewName("redirect:CreateFilm.do");
 		}else {
+//			mv.addObject("FilmNotCreated", "Invalid entry. Film not created");
 			//error jsp to showcase error with link to return to home.do
 		}
-		
 		return mv;
 	}
 	
-	@RequestMapping(path = "CreateFilm.do", method = RequestMethod.GET)
+	@RequestMapping(path = "CreateFilm.do", method= RequestMethod.GET)
 	public ModelAndView filmAdded (Film film) {
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("film", film);
 		mv.setViewName("home");
 		return mv;
 	}
+
 	
 	//User story 3
+	@RequestMapping(path = "UpdateFilm.do", method= RequestMethod.POST)
+	public ModelAndView updateFilm (Film film, RedirectAttributes redirect) {
+		ModelAndView mv = new ModelAndView();
+		Film updatedFilm = filmDao.updateFilm(film);
+		if(updatedFilm !=null) {
+		redirect.addFlashAttribute("film", filmDao.findFilmById(updatedFilm.getFilmId()));
+		mv.setViewName("redirect:UpdateFilm.do");
+		}
+		return mv;
+	}
+	@RequestMapping(path = "UpdateFilm.do", method= RequestMethod.GET)
+	public ModelAndView filmUpdated (Film film) {
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("film", film);
+		mv.setViewName("home");
+		return mv;
+	}
+	
+
 	@RequestMapping(path = "DeleteFilm.do", method = RequestMethod.GET)
 	public ModelAndView deleteFilm (@RequestParam("filmId") int filmId) {
 		ModelAndView mv = new ModelAndView();

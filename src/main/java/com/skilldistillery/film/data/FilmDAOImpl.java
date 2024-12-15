@@ -250,12 +250,19 @@ public class FilmDAOImpl implements FilmDAO {
 		try {
 			conn = DriverManager.getConnection(URL, user, pass);
 			conn.setAutoCommit(false); // START TRANSACTION
-			String sql = "UPDATE film SET title=?, description=? ,release_year=?" + " WHERE id=?";
+			String sql = "UPDATE film SET title=?, description=? ,release_year=?, language_id=?, rental_duration=?, rental_rate=?, ";
+				sql+=" length=?, replacement_cost=?, rating=?" + " WHERE id=?";
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			stmt.setString(1, film.getFilmTitle());
 			stmt.setString(2, film.getFilmDesc());
 			stmt.setInt(3, film.getReleaseYear());
-			stmt.setInt(4, film.getFilmId());
+			stmt.setInt(4, film.getLangId());
+			stmt.setInt(5, film.getRentDur());
+			stmt.setInt(6, film.getRentRate());
+			stmt.setInt(7, film.getFilmLength());
+			stmt.setDouble(8, film.getReplCost());
+			stmt.setString(9, film.getFilmRating());
+			stmt.setInt(10, film.getFilmId());
 			int updateCount = stmt.executeUpdate();
 
 			conn.commit();
@@ -269,7 +276,6 @@ public class FilmDAOImpl implements FilmDAO {
 					System.err.println("Error trying to rollback");
 				}
 			}
-
 		}
 		return film;
 
