@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="main.css">
+<link href="main.css" rel="stylesheet" type="text/css"/>
 <meta charset="UTF-8">
 <title>MVC Film Site</title>
 </head>
