@@ -46,7 +46,7 @@
 			</c:otherwise>
 		</c:choose>
 		
-	<form action="DeleteFilm.do" method="POST">
+	<form action="DeleteFilm.do" method="GET">
 		Enter film id: <input type="text" name="filmId" /> 
 		<input type="submit" value="Delete Film" />
 	</form>	</div>
