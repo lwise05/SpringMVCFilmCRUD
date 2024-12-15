@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="main.css">
+<link rel="stylesheet" type="text/css" href="main.css">
 <meta charset="UTF-8">
 <title>MVC Film Site</title>
 </head>
@@ -45,8 +45,11 @@
 			<c:otherwise>
 			</c:otherwise>
 		</c:choose>
-
-	</div>
+		
+	<form action="DeleteFilm.do" method="POST">
+		Enter film id: <input type="text" name="filmId" /> 
+		<input type="submit" value="Delete Film" />
+	</form>	</div>
 
 	<form action="CreateFilm.do" method="POST">
 	<h1>Add a film to the database</h1>
@@ -92,12 +95,5 @@
 		<input type="submit" value= "Create Film"/>
 	</form>
 
-<div>
-	<form action="GetFilmById.do" method="GET">
-		Film id: <input type="text" name="filmId" /> 
-
-		<input type="submit" value="Get Film Data" />
-	</form>
-</div>
 </body>
 </html>
