@@ -86,11 +86,18 @@
 			<option value="G">G</option>
 			<option value="PG">PG</option>
 			<option value="PG13">PG13</option>
-			<option value="NC17">NC17</option>
 			<option value="R">R</option>
+			<option value="NC17">NC17</option>
 		</select><br>
 		<input type="submit" value= "Create Film"/>
 	</form>
 
+<div>
+	<form action="GetFilmById.do" method="GET">
+		Film id: <input type="text" name="filmId" /> 
+
+		<input type="submit" value="Get Film Data" />
+	</form>
+</div>
 </body>
 </html>

@@ -14,6 +14,6 @@ public interface FilmDAO {
   Film createFilm(Film film);
   Film updateFilm(Film film);
   boolean deleteFilm(int filmToDelete);
-  	// in doaImp do a try/catch: return true in Try, return false in Catch
+  	// in daoImp do a try/catch: return true in Try, return false in Catch
   
 }

@@ -26,6 +26,7 @@ public class FilmController {
 		return mv;
 	}
 	
+	//User story 1
 	@RequestMapping(path = "GetFilmById.do", params = "filmId", method = RequestMethod.GET )
 	public ModelAndView GetFilmById(@RequestParam ( "filmId") int filmId) {
 		ModelAndView mv = new ModelAndView();
@@ -38,7 +39,8 @@ public class FilmController {
 		return mv;
 	}
 
-	@RequestMapping(path = "CreateFilm.do", method= RequestMethod.POST)
+	//User story 2
+	@RequestMapping(path = "CreateFilm.do", method = RequestMethod.POST)
 	public ModelAndView CreateFilm(Film film, RedirectAttributes redirect) {
 		ModelAndView mv = new ModelAndView();
 		Film newFilm = filmDao.createFilm(film);
@@ -51,7 +53,8 @@ public class FilmController {
 		
 		return mv;
 	}
-	@RequestMapping(path = "CreateFilm.do", method= RequestMethod.GET)
+	
+	@RequestMapping(path = "CreateFilm.do", method = RequestMethod.GET)
 	public ModelAndView filmAdded (Film film) {
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("film", film);
@@ -59,5 +62,14 @@ public class FilmController {
 		return mv;
 	}
 	
-	
+	@RequestMapping(path = "DeleteFilm.do", method = RequestMethod.GET)
+	public void deleteFilm (@RequestParam(" filmId") int filmId) {
+		ModelAndView mv = new ModelAndView();
+		boolean filmToDelete = filmDao.deleteFilm(filmId);
+		Film film = filmDao.findFilmById(filmId);
+		mv.addObject(film);
+		mv.clear();
+		
+//		return null;
+	}
 }
