@@ -39,10 +39,12 @@
 						<li>Actor ID: ${actor.actorId}</li>
 					</c:forEach>
 				</ul>
+				<a href="UpdateFilm.do">Update film</a>
 			</c:when>
 			<c:when test="${! empty SearchFailed }">
 				<p>No film found.</p>
 			</c:when>
+			
 			<c:otherwise>
 			</c:otherwise>
 		</c:choose>
@@ -80,6 +82,11 @@
 			</select><br> <input type="submit" value="Create Film" />
 		</form>
 	</div>
+	
+	<form action="DeleteFilm.do" method="GET">
+		Enter film id: <input type="text" name="filmId" /> 
+		<input type="submit" value="Delete Film" />
+	</form>	</div>
 
 	<form action="CreateFilm.do" method="POST">
 		<h1>Add a film to the database</h1>

@@ -36,7 +36,7 @@ public class FilmController {
 			mv.addObject("SearchFailed", "film not found");
 		}
 		if (film != null) {
-			mv.setViewName("home");			
+			mv.setViewName("result");			
 		}
 		return mv;
 	}
@@ -80,7 +80,7 @@ public class FilmController {
 	public ModelAndView filmUpdated (Film film) {
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("film", film);
-		mv.setViewName("home");
+		mv.setViewName("updatefilm");
 		return mv;
 	}
 

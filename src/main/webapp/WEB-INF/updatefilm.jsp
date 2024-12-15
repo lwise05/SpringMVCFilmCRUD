@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="jakarta.tags.core" prefix="c"%> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,6 +11,8 @@
 	<h2>Update film</h2>
 
 	<form action="UpdateFilm.do" method="POST">
+	<c:choose>
+	<c:when test="${! empty film}">
 	<label for="filmTitle">Film Title: </label> 
 	<input type="text" name="filmTitle" value="${film.filmTitle}"> <br>
 	<label for="filmDesc">Film Description: </label> <br>
@@ -41,8 +44,11 @@
 		<option value="NC17">NC17</option>
 		<option value="R">R</option>
 	</select><br> <input type="submit" value="Update Film" />
-	
+	</c:when>
+	</c:choose>
 	</form>
+	
+	
 	
 </body>
 </html>
