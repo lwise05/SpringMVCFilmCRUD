@@ -83,12 +83,11 @@ public class FilmController {
 		mv.setViewName("home");
 		return mv;
 	}
-	
 
 	@RequestMapping(path = "DeleteFilm.do", method = RequestMethod.GET)
 	public ModelAndView deleteFilm (@RequestParam("filmId") int filmId) {
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("home");
+		mv.setViewName("DeleteFilm");
 		boolean filmToDelete = filmDao.deleteFilm(filmId);
 		
 		return mv;

@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link href="main.css" rel="stylesheet" type="text/css"/>
+<link href="main.css" rel="stylesheet" type="text/css" />
 <meta charset="UTF-8">
 <title>MVC Film Site</title>
 </head>
@@ -46,91 +46,69 @@
 			<c:otherwise>
 			</c:otherwise>
 		</c:choose>
-
-
-	</div>
-<div>
-
-			<form action="CreateFilm.do" method="POST">
-				<h1>Add a film to the database</h1>
-				<label for="filmTitle">Film Title: </label> <input type="text"
-					name="filmTitle"> <br> <label for="filmDesc">Film
-					Description: </label> <input type="text" name="filmDesc"> <br>
-				<label for="releaseYear">Release Year: </label> <input type="text"
-					name="releaseYear"> <br> <label for="langId">Language
-					Id: </label> <select name="langId" id="langId">
-					<option value="1">1: English</option>
-					<option value="2">2: Italian</option>
-					<option value="3">3: Japanese</option>
-					<option value="4">4: Mandarin</option>
-					<option value="5">5: French</option>
-					<option value="6">6: German</option>
-				</select> <br> <label for="rentDur">Rental Duration: </label> <input
-					type="text" name="rentDur"> <br> <label for="rentRate">Rental
-					Rate: </label> <input type="text" name="rentRate"> <br> <label
-					for="filmLength">Film Length: </label> <input type="text"
-					name="filmLength"> <br> <label for="replCost">Replacement
-					Cost: </label> <input type="text" name="replCost"> <br> <label
-					for="filmRating">Film Rating: </label> <select name="filmRating"
-					id="filmRating">
-					<option value="G">G</option>
-					<option value="PG">PG</option>
-					<option value="PG13">PG13</option>
-					<option value="NC17">NC17</option>
-					<option value="R">R</option>
-				</select><br> <input type="submit" value="Create Film" />
-				</form>
-	</div>
-	
-
 		
-	<form action="DeleteFilm.do" method="GET">
-		Enter film id: <input type="text" name="filmId" /> 
-		<input type="submit" value="Delete Film" />
-	</form>	</div>
+	<h4>Click here to delete film.</h4>
+	<a href="/jsp/DeleteFilm.jsp" target="_blank" class="btn-btn">
+	<button> Delete Film </button></a>
+	
+	</div>
+	<div>
+
+		<form action="CreateFilm.do" method="POST">
+			<h1>Add a film to the database</h1>
+			<label for="filmTitle">Film Title: </label> <input type="text" name="filmTitle"> <br> 
+			<label for="filmDesc">Film Description: </label> <input type="text" name="filmDesc"> <br>
+			<label for="releaseYear">Release Year: </label> <input type="text" name="releaseYear"> <br> 
+			<label for="langId">Language Id: </label> <select name="langId" id="langId">
+				<option value="1">1: English</option>
+				<option value="2">2: Italian</option>
+				<option value="3">3: Japanese</option>
+				<option value="4">4: Mandarin</option>
+				<option value="5">5: French</option>
+				<option value="6">6: German</option>
+			</select> <br> 
+			<label for="rentDur">Rental Duration: </label> <input type="text" name="rentDur"> <br> 
+			<label for="rentRate">Rental Rate: </label> <input type="text" name="rentRate"> <br> 
+			<label for="filmLength">Film Length: </label> <input type="text" name="filmLength"> <br> 
+			<label for="replCost">Replacement Cost: </label> <input type="text" name="replCost"> <br> 
+			<label for="filmRating">Film Rating: </label> <select name="filmRating" id="filmRating">
+				<option value="G">G</option>
+				<option value="PG">PG</option>
+				<option value="PG13">PG13</option>
+				<option value="R">R</option>
+				<option value="NC17">NC17</option>
+			</select><br> <input type="submit" value="Create Film" />
+		</form>
+	</div>
 
 	<form action="CreateFilm.do" method="POST">
-	<h1>Add a film to the database</h1>
-		<label for="filmTitle">Film Title: </label>
-		<input type="text" name="filmTitle">
-		<br>
-		<label for="filmDesc">Film Description: </label>
-		<input type="text" name="filmDesc">
-		<br>
-		<label for="releaseYear">Release Year: </label>
-		<input type="text" name="releaseYear">
-		<br>
-		<label for="langId">Language Id: </label>
-		<select name="langId" id="langId">
+		<h1>Add a film to the database</h1>
+		<label for="filmTitle">Film Title: </label> <input type="text"
+			name="filmTitle"> <br> <label for="filmDesc">Film
+			Description: </label> <input type="text" name="filmDesc"> <br> <label
+			for="releaseYear">Release Year: </label> <input type="text"
+			name="releaseYear"> <br> <label for="langId">Language
+			Id: </label> <select name="langId" id="langId">
 			<option value="1">1: English</option>
 			<option value="2">2: Italian</option>
 			<option value="3">3: Japanese</option>
 			<option value="4">4: Mandarin</option>
 			<option value="5">5: French</option>
 			<option value="6">6: German</option>
-		</select>
-		<br>
-		<label for="rentDur">Rental Duration: </label>
-		<input type="text" name="rentDur">
-		<br>
-		<label for="rentRate">Rental Rate: </label>
-		<input type="text" name="rentRate">
-		<br>
-		<label for="filmLength">Film Length: </label>
-		<input type="text" name="filmLength">
-		<br>
-		<label for="replCost">Replacement Cost: </label>
-		<input type="text" name="replCost">
-		<br>
-		<label for="filmRating">Film Rating: </label>
-		<select name="filmRating" id="filmRating">
+		</select> <br> <label for="rentDur">Rental Duration: </label> <input
+			type="text" name="rentDur"> <br> <label for="rentRate">Rental
+			Rate: </label> <input type="text" name="rentRate"> <br> <label
+			for="filmLength">Film Length: </label> <input type="text"
+			name="filmLength"> <br> <label for="replCost">Replacement
+			Cost: </label> <input type="text" name="replCost"> <br> <label
+			for="filmRating">Film Rating: </label> <select name="filmRating"
+			id="filmRating">
 			<option value="G">G</option>
 			<option value="PG">PG</option>
 			<option value="PG13">PG13</option>
 			<option value="R">R</option>
 			<option value="NC17">NC17</option>
-		</select><br>
-		<input type="submit" value= "Create Film"/>
+		</select><br> <input type="submit" value="Create Film" />
 	</form>
 
 
