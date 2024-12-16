@@ -36,22 +36,18 @@
 				<p>No film found.</p>
 			</c:when>
 			
-			<c:otherwise>
-			</c:otherwise>
+			<c:otherwise><p>Invalid entry. Film was not updated</p></c:otherwise>
 		</c:choose>
 		
 		<form action="UpdateFilm.do" method="POST">
 	<c:choose>
 	<c:when test="${! empty film}">
 	<input type="hidden" value="${film.filmId}" name="filmId">
-	<label for="filmTitle">Film Title: </label> 
-	<input type="text" name="filmTitle" value="${film.filmTitle}"> <br>
-	<label for="filmDesc">Film Description: </label> <br>
-	<input type="text" name="filmDesc" value="${film.filmDesc}"><br>
-	<label for="releaseYear">Release Year: </label>
-	<input type="text" name="releaseYear" value="${film.releaseYear}"> <br> 
-	<label for="langId">Language Id: </label> 
-	<select name="langId" id="langId">
+	
+	Title: <input type="text" name="filmTitle" value="${film.filmTitle}" required> <br>
+	Description: <input type="text" name="filmDesc" value="${film.filmDesc}" required><br>
+	Release Year:<input type="text" name="releaseYear" value="${film.releaseYear}" required> <br> 
+	Language Id: <select name="langId" id="langId">
 		<option value="1">1: English</option>
 		<option value="2">2: Italian</option>
 		<option value="3">3: Japanese</option>
@@ -59,16 +55,11 @@
 		<option value="5">5: French</option>
 		<option value="6">6: German</option>
 	</select> <br> 
-	<label for="rentDur">Rental Duration: </label> 
-	<input type="text" name="rentDur" value="${film.rentDur}"> <br> 
-	<label for="rentRate">Rental Rate: </label> 
-	<input type="text" name="rentRate" value="${film.rentRate}"> <br> 
-	<label for="filmLength">Film Length: </label> 
-	<input type="text" name="filmLength" value="${film.filmLength}"> <br> 
-	<label for="replCost">Replacement Cost: </label> 
-	<input type="text" name="replCost" value="${film.replCost}"> <br> 
-	<label for="filmRating">Film Rating: </label> 
-	<select name="filmRating" id="filmRating">
+	Rental Duration: <input type="number" name="rentDur" value="${film.rentDur}" MIN="0" MAX="250" required> <br> 
+	Rental Rate: <input type="text" name="rentRate" value="${film.rentRate}"required> <br> 
+	Film length: <input type="text" name="filmLength" value="${film.filmLength}"required> minutes <br> 
+	Replacement Cost: $<input type="text" name="replCost" value="${film.replCost}"required> <br> 
+	Film Rating: <select name="filmRating" id="filmRating">
 		<option value="G">G</option>
 		<option value="PG">PG</option>
 		<option value="PG13">PG13</option>

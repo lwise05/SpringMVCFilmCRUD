@@ -13,8 +13,13 @@
 
 <body>
 	<form action="GetFilmById.do" method="GET">
-		Film id: <input type="text" name="filmId" /> <input type="submit"
-			value="Get Film Data" />
+		Find film by id: <input type="text" name="filmId" /> 
+		<input type="submit" value="Get Film" />
+	</form>
+	
+	<form action="GetFilmByKeyWord.do" method="GET">
+		Find films by keyword: <input type="text" name="keyword" /> 
+		<input type="submit" value="Find Films" />
 	</form>
 	<div>
 
@@ -56,7 +61,7 @@
 		</c:choose>
 	
 	<form action="DeleteFilm.do" method="GET">
-		Enter film id: <input type="text" name="filmId" /> 
+		Deleter film by film id: <input type="text" name="filmId" /> 
 		<input type="submit" value="Delete Film" />
 	</form>	</div>
 	
@@ -66,58 +71,26 @@
 	<button> Delete Film </button></a> -->
 	
 	</div>
-	<div>
-
-		<form action="CreateFilm.do" method="POST">
-			<h1>Add a film to the database</h1>
-			<label for="filmTitle">Film Title: </label> <input type="text" name="filmTitle"> <br> 
-			<label for="filmDesc">Film Description: </label> <input type="text" name="filmDesc"> <br>
-			<label for="releaseYear">Release Year: </label> <input type="text" name="releaseYear"> <br> 
-			<label for="langId">Language Id: </label> <select name="langId" id="langId">
-				<option value="1">1: English</option>
-				<option value="2">2: Italian</option>
-				<option value="3">3: Japanese</option>
-				<option value="4">4: Mandarin</option>
-				<option value="5">5: French</option>
-				<option value="6">6: German</option>
-			</select> <br> 
-			<label for="rentDur">Rental Duration: </label> <input type="text" name="rentDur"> <br> 
-			<label for="rentRate">Rental Rate: </label> <input type="text" name="rentRate"> <br> 
-			<label for="filmLength">Film Length: </label> <input type="text" name="filmLength"> <br> 
-			<label for="replCost">Replacement Cost: </label> <input type="text" name="replCost"> <br> 
-			<label for="filmRating">Film Rating: </label> <select name="filmRating" id="filmRating">
-				<option value="G">G</option>
-				<option value="PG">PG</option>
-				<option value="PG13">PG13</option>
-				<option value="R">R</option>
-				<option value="NC17">NC17</option>
-			</select><br> <input type="submit" value="Create Film" />
-		</form>
-	</div>
-	
 
 
 	<form action="CreateFilm.do" method="POST">
 		<h1>Add a film to the database</h1>
-		<label for="filmTitle">Film Title: </label> <input type="text"
-			name="filmTitle"> <br> <label for="filmDesc">Film
-			Description: </label> <input type="text" name="filmDesc"> <br> <label
-			for="releaseYear">Release Year: </label> <input type="text"
-			name="releaseYear"> <br> <label for="langId">Language
-			Id: </label> <select name="langId" id="langId">
+			Film Title: <input type="text" name="filmTitle" required> <br> 
+			Film Description: <input type="text" name="filmDesc" required> <br> 
+			Release Year: <input type="text" name="releaseYear" required> 
+			Language Id: <select name="langId" id="langId">
 			<option value="1">1: English</option>
 			<option value="2">2: Italian</option>
 			<option value="3">3: Japanese</option>
 			<option value="4">4: Mandarin</option>
 			<option value="5">5: French</option>
 			<option value="6">6: German</option>
-		</select> <br> <label for="rentDur">Rental Duration: </label> <input
-			type="text" name="rentDur"> <br> <label for="rentRate">Rental
-			Rate: </label> <input type="text" name="rentRate"> <br> <label
-			for="filmLength">Film Length: </label> <input type="text"
-			name="filmLength"> <br> <label for="replCost">Replacement
-			Cost: </label> <input type="text" name="replCost"> <br> <label
-			for="filmRating">Film Rating: </label> <select name="filmRating"
+		</select> <br> 
+			Rental Duration: <input type="text" name="rentDur" required> <br> 
+			Rental Rate: <input type="text" name="rentRate" required> <br> 
+			Film Length: <input type="text" name="filmLength" required> <br>
+			Replacement Cost: <input type="text" name="replCost" required> <br> 
+			Film Rating:  <select name="filmRating"
 			id="filmRating">
 			<option value="G">G</option>
 			<option value="PG">PG</option>
