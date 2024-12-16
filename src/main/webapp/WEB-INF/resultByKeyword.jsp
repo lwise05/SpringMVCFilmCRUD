@@ -8,11 +8,11 @@
 <title>Films Found With Keyword</title>
 </head>
 <body>
-	
-		<c:choose>
-		
-			<c:when test="${! empty films}">
-				<c:forEach var="film" items="${films}">
+
+	<c:choose>
+
+		<c:when test="${! empty films}">
+			<c:forEach var="film" items="${films}">
 				<h2>Title: ${film.filmTitle}</h2>
 				<li>Film Id: ${film.filmId}</li>
 				<li>Description: ${film.filmDesc}</li>
@@ -25,26 +25,24 @@
 				<li>Replacement Cost: ${film.replCost}</li>
 				<li>Rating: ${film.filmRating}</li>
 				<li>Special Features: ${film.specFeat}</li>
-				</c:forEach>
-				<div>
-				<ul>
-				<li>Actors from film:</li>
-					<c:forEach var="actor" items="${film.actors}">
-						<li><strong>${actor.firstName} ${actor.lastName}</strong></li>
-						<li>Actor ID: ${actor.actorId}</li>
-					</c:forEach>
-					</ul>
-				</div>
-
-			</c:when>
-			<c:when test="${! empty SearchFailed }">
-				<p>No films found.</p>
-			</c:when>
-
-			<c:otherwise>
-				<p>Invalid entry. Film was not updated</p>
-			</c:otherwise>
+			
+				<h4>Cast in film</h4>
+			<c:forEach var="actor" items="${film.actors}">
+				<li><strong>${actor.firstName} ${actor.lastName}</strong> (Actor Id: ${actor.actorId})</li>
+				
+			</c:forEach>
+		</c:forEach>
+		</c:when>
+				
 		
-		</c:choose>
+		<c:when test="${! empty SearchFailed }">
+			<p>No films found.</p>
+		</c:when>
+
+		<c:otherwise>
+			<p>Invalid entry. Film was not updated</p>
+		</c:otherwise>
+
+	</c:choose>
 </body>
 </html>

@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.skilldistillery.film.data.FilmDAO;
+import com.skilldistillery.film.entities.Actor;
 import com.skilldistillery.film.entities.Film;
 
 @Controller
@@ -110,6 +111,11 @@ public class FilmController {
 		ModelAndView mv = new ModelAndView();
 		List<Film> films = new ArrayList<>();
 			films = filmDao.findFilmByKeyword(keyword);
+			List<Actor> actors = new ArrayList<>();
+			for(Film film : films) {
+				actors = filmDao.findActorsByFilmId(film.getFilmId());
+					
+					}
 		
 		if (films == null) {
 			mv.addObject("SearchFailed", "films not found");
@@ -117,6 +123,8 @@ public class FilmController {
 		if (films != null) {
 			mv.setViewName("resultByKeyword");
 			mv.addObject("films", films);
+			mv.addObject("actors", actors);
+			
 		}
 		return mv;
 	}
