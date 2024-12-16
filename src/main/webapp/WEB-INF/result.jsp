@@ -38,9 +38,10 @@
 				<p>No film found.</p>
 			</c:when>
 
-			<c:otherwise>
-				<p>Invalid entry. Film was not updated</p>
-			</c:otherwise>
+		<%-- 	<c:when test="${empty film }">
+				<p>No film was found with that id.</p>
+			</c:when> --%>
+			
 		</c:choose>
 	</div>
 
@@ -97,6 +98,6 @@
 	</form>
 	</div>
 
-
+<a href="home.do">Return to home page</a>
 </body>
 </html>

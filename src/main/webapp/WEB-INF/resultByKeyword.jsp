@@ -44,7 +44,8 @@
 		</c:when>
 
 		<c:otherwise>
-			<p>Invalid entry. Film was not updated</p>
+			<p>No films found with keyword</p>
+			<a href="home.do">Return to home page</a>
 		</c:otherwise>
 
 	</c:choose>

@@ -63,19 +63,23 @@ public class FilmController {
 	public ModelAndView filmAdded(Film film) {
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("film", film);
-		mv.setViewName("home");
+		mv.setViewName("result");
 		return mv;
 	}
 
 	// User story 3
-	@RequestMapping(path = "DeleteFilm.do", method = RequestMethod.GET)
+	@RequestMapping(path = "DeleteFilm.do", method = RequestMethod.POST)
 	public ModelAndView deleteFilm(@RequestParam("filmId") int filmId) {
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("home");
+		Film film = filmDao.findFilmById(filmId);
+		mv.setViewName("deletedFilm");
+		mv.addObject("film", film);
 		boolean filmToDelete = filmDao.deleteFilm(filmId);
 
 		return mv;
 	}
+	
+	
 
 	// User story 4
 	@RequestMapping(path = "UpdateFilm.do", method = RequestMethod.POST)
