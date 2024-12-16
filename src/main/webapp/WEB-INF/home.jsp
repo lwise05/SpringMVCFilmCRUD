@@ -39,6 +39,12 @@
 						<li>Actor ID: ${actor.actorId}</li>
 					</c:forEach>
 				</ul>
+				<li>Film categories: </li>
+				<ul>
+					<c:forEach var="category" items="${film.categories}">
+						<li>Film category: ${film.category}</li>
+					</c:forEach>
+				</ul>
 				<a href="UpdateFilm.do">Update film</a>
 			</c:when>
 			<c:when test="${! empty SearchFailed }">
@@ -48,10 +54,16 @@
 			<c:otherwise>
 			</c:otherwise>
 		</c:choose>
+	
+	<form action="DeleteFilm.do" method="GET">
+		Enter film id: <input type="text" name="filmId" /> 
+		<input type="submit" value="Delete Film" />
+	</form>	</div>
+	
 		
-	<h4>Click here to delete film.</h4>
+<!-- 	<h4>Click here to delete film.</h4>
 	<a href="/jsp/DeleteFilm.jsp" target="_blank" class="btn-btn">
-	<button> Delete Film </button></a>
+	<button> Delete Film </button></a> -->
 	
 	</div>
 	<div>
@@ -83,10 +95,7 @@
 		</form>
 	</div>
 	
-	<form action="DeleteFilm.do" method="GET">
-		Enter film id: <input type="text" name="filmId" /> 
-		<input type="submit" value="Delete Film" />
-	</form>	</div>
+
 
 	<form action="CreateFilm.do" method="POST">
 		<h1>Add a film to the database</h1>

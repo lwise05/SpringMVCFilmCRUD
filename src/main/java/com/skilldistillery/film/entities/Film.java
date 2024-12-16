@@ -1,6 +1,7 @@
 package com.skilldistillery.film.entities;
 
 import java.util.List;
+import java.util.Locale.Category;
 
 public class Film {
 
@@ -17,6 +18,7 @@ public class Film {
 	private String filmRating;
 	private String specFeat;
 	private List<Actor> actors;
+	private List<Category> categories;
 
 	public Film() {
 		super();
@@ -140,6 +142,14 @@ public class Film {
 
 	public void setLanguageName(String languageName) {
 		this.languageName = languageName;
+	}
+	
+	public List<Category> getCategories() {
+		return categories;
+	}
+
+	public void setCategories(List<Category> categories) {
+		this.categories = categories;
 	}
 
 	@Override
