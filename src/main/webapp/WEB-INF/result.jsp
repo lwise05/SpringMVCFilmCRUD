@@ -97,7 +97,10 @@
 		</c:choose>
 	</form>
 	</div>
-
+<br><form action="DeleteFilm.do" method="POST">
+		Delete film by film id: <input type="text" name="filmId" /> 
+		<input type="submit" value="Delete Film" />
+	</form>
 <a href="home.do">Return to home page</a>
 </body>
 </html>

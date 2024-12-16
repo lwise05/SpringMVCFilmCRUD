@@ -77,7 +77,7 @@
 		<h1>Add a film to the database</h1>
 			Film Title: <input type="text" name="filmTitle" required> <br> 
 			Film Description: <input type="text" name="filmDesc" required> <br> 
-			Release Year: <input type="text" name="releaseYear" required> 
+			Release Year: <input type="text" name="releaseYear" required> <br>
 			Language Id: <select name="langId" id="langId">
 			<option value="1">1: English</option>
 			<option value="2">2: Italian</option>
