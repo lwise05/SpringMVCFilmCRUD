@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import org.springframework.stereotype.Component;
 
@@ -49,6 +50,7 @@ public class FilmDAOImpl implements FilmDAO {
 				film.setSpecFeat(rs.getString("special_features"));
 				film.setActors(findActorsByFilmId(filmId));
 				film.setLanguageName(rs.getString("name"));
+//				film.setCategories(findFilmById(filmId));
 
 			}
 			rs.close();
@@ -59,6 +61,28 @@ public class FilmDAOImpl implements FilmDAO {
 			e.printStackTrace();
 		}
 		return film;
+	}
+
+	@Override
+	public String toString() {
+		return "FilmDAOImpl [user=" + user + ", pass=" + pass + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(pass, user);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		FilmDAOImpl other = (FilmDAOImpl) obj;
+		return Objects.equals(pass, other.pass) && Objects.equals(user, other.user);
 	}
 
 	@Override

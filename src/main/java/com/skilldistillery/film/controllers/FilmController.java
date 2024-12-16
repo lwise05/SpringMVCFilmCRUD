@@ -88,7 +88,6 @@ public class FilmController {
 		mv.setViewName("updatefilm");
 		return mv;
 	}
-	
 
 	@RequestMapping(path = "DeleteFilm.do", method = RequestMethod.GET)
 	public ModelAndView deleteFilm (@RequestParam("filmId") int filmId) {
