@@ -2,6 +2,7 @@ package com.skilldistillery.film.entities;
 
 import java.util.List;
 import java.util.Locale.Category;
+import java.util.Objects;
 
 public class Film {
 
@@ -18,27 +19,35 @@ public class Film {
 	private String filmRating;
 	private String specFeat;
 	private List<Actor> actors;
-	private List<Category> categories;
+	private List<String> categories;
 
 	public Film() {
 		super();
 	}
 
-	public Film(int filmId, String filmTitle, String filmDesc, int releaseYear, int langId, int rentDur, int rentRate,
-			int filmLength, double replCost, String filmRating, String specFeat) {
+
+
+	public Film(int filmId, String filmTitle, String filmDesc, int releaseYear, int langId, String languageName,
+			int rentDur, int rentRate, int filmLength, double replCost, String filmRating, String specFeat,
+			List<Actor> actors, List<String> categories) {
 		super();
 		this.filmId = filmId;
 		this.filmTitle = filmTitle;
 		this.filmDesc = filmDesc;
 		this.releaseYear = releaseYear;
 		this.langId = langId;
+		this.languageName = languageName;
 		this.rentDur = rentDur;
 		this.rentRate = rentRate;
 		this.filmLength = filmLength;
 		this.replCost = replCost;
 		this.filmRating = filmRating;
 		this.specFeat = specFeat;
+		this.actors = actors;
+		this.categories = categories;
 	}
+
+
 
 	public int getFilmId() {
 		return filmId;
@@ -144,33 +153,23 @@ public class Film {
 		this.languageName = languageName;
 	}
 	
-	public List<Category> getCategories() {
+	public List<String> getCategories() {
 		return categories;
 	}
 
-	public void setCategories(List<Category> categories) {
+	public void setCategories(List<String> categories) {
 		this.categories = categories;
 	}
 
+	
+
 	@Override
 	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((filmDesc == null) ? 0 : filmDesc.hashCode());
-		result = prime * result + filmId;
-		result = prime * result + filmLength;
-		result = prime * result + ((filmRating == null) ? 0 : filmRating.hashCode());
-		result = prime * result + ((filmTitle == null) ? 0 : filmTitle.hashCode());
-		result = prime * result + langId;
-		result = prime * result + releaseYear;
-		result = prime * result + rentDur;
-		result = prime * result + rentRate;
-		long temp;
-		temp = Double.doubleToLongBits(replCost);
-		result = prime * result + (int) (temp ^ (temp >>> 32));
-		result = prime * result + ((specFeat == null) ? 0 : specFeat.hashCode());
-		return result;
+		return Objects.hash(actors, categories, filmDesc, filmId, filmLength, filmRating, filmTitle, langId,
+				languageName, releaseYear, rentDur, rentRate, replCost, specFeat);
 	}
+
+
 
 	@Override
 	public boolean equals(Object obj) {
@@ -181,49 +180,27 @@ public class Film {
 		if (getClass() != obj.getClass())
 			return false;
 		Film other = (Film) obj;
-		if (filmDesc == null) {
-			if (other.filmDesc != null)
-				return false;
-		} else if (!filmDesc.equals(other.filmDesc))
-			return false;
-		if (filmId != other.filmId)
-			return false;
-		if (filmLength != other.filmLength)
-			return false;
-		if (filmRating == null) {
-			if (other.filmRating != null)
-				return false;
-		} else if (!filmRating.equals(other.filmRating))
-			return false;
-		if (filmTitle == null) {
-			if (other.filmTitle != null)
-				return false;
-		} else if (!filmTitle.equals(other.filmTitle))
-			return false;
-		if (langId != other.langId)
-			return false;
-		if (releaseYear != other.releaseYear)
-			return false;
-		if (rentDur != other.rentDur)
-			return false;
-		if (rentRate != other.rentRate)
-			return false;
-		if (Double.doubleToLongBits(replCost) != Double.doubleToLongBits(other.replCost))
-			return false;
-		if (specFeat == null) {
-			if (other.specFeat != null)
-				return false;
-		} else if (!specFeat.equals(other.specFeat))
-			return false;
-		return true;
+		return Objects.equals(actors, other.actors) && Objects.equals(categories, other.categories)
+				&& Objects.equals(filmDesc, other.filmDesc) && filmId == other.filmId && filmLength == other.filmLength
+				&& Objects.equals(filmRating, other.filmRating) && Objects.equals(filmTitle, other.filmTitle)
+				&& langId == other.langId && Objects.equals(languageName, other.languageName)
+				&& releaseYear == other.releaseYear && rentDur == other.rentDur && rentRate == other.rentRate
+				&& Double.doubleToLongBits(replCost) == Double.doubleToLongBits(other.replCost)
+				&& Objects.equals(specFeat, other.specFeat);
 	}
+
+
 
 	@Override
 	public String toString() {
-		return "Film [filmId=" + filmId + ", filmTitle=" + filmTitle + ", filmDesc=" + filmDesc + ", releaseYear="
-				+ releaseYear + ", langId=" + langId + ", rentDur=" + rentDur + ", rentRate=" + rentRate
-				+ ", filmLength=" + filmLength + ", replCost=" + replCost + ", filmRating=" + filmRating + ", specFeat="
-				+ specFeat + "]";
+		return "Film filmId=" + filmId + ", filmTitle=" + filmTitle + ", filmDesc=" + filmDesc + ", releaseYear="
+				+ releaseYear + ", langId=" + langId + ", languageName=" + languageName + ", rentDur=" + rentDur
+				+ ", rentRate=" + rentRate + ", filmLength=" + filmLength + ", replCost=" + replCost + ", filmRating="
+				+ filmRating + ", specFeat=" + specFeat + ", actors=" + actors + ", categories=" + categories + "";
 	}
+
+
+
+
 
 }

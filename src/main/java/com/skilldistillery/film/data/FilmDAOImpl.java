@@ -50,6 +50,7 @@ public class FilmDAOImpl implements FilmDAO {
 				film.setSpecFeat(rs.getString("special_features"));
 				film.setActors(findActorsByFilmId(filmId));
 				film.setLanguageName(rs.getString("name"));
+				film.setCategories(findCategoryById(film).getCategories());
 //				film.setCategories(findFilmById(filmId));
 
 			}
@@ -176,7 +177,7 @@ public class FilmDAOImpl implements FilmDAO {
 				film.setSpecFeat(rs.getString("special_features"));
 				film.setActors(findActorsByFilmId(rs.getInt("id")));
 				film.setLanguageName(rs.getString("name"));
-
+				film.setCategories(findCategoryById(film).getCategories());
 				films.add(film);
 
 			}
@@ -315,6 +316,32 @@ public class FilmDAOImpl implements FilmDAO {
 			System.err.println("Exiting.");
 			System.exit(1);
 		}
+	}
+
+	@Override
+	public Film findCategoryById(Film film) {
+		Connection conn = null;
+		List<String> categories = new ArrayList<>();
+		try {
+			conn = DriverManager.getConnection(URL, user, pass);
+			conn.setAutoCommit(false); 
+			String sql = "SELECT category.name FROM film JOIN language ON film.language_id = language.id ";
+			sql += " JOIN film_category ON film_category.film_id = film.id ";
+			sql += " JOIN category ON category.id = film_category.film_id WHERE film.id = ? ";
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			stmt.setInt(1, film.getFilmId());
+			
+			ResultSet rs = stmt.executeQuery();
+			
+			while (rs.next()) {
+				String categoryName = rs.getString("category.name");
+				categories.add(categoryName);
+				film.setCategories(categories);
+			}
+		}catch(SQLException e) {
+			System.out.println(e);
+		}
+		return film;
 	}
 
 }

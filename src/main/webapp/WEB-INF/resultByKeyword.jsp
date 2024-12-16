@@ -25,13 +25,17 @@
 				<li>Replacement Cost: ${film.replCost}</li>
 				<li>Rating: ${film.filmRating}</li>
 				<li>Special Features: ${film.specFeat}</li>
-			
+				<li>Category:${film.categories}</li>
 				<h4>Cast in film</h4>
+				<c:if test="${empty film.actors}">
+					<p>No cast in film</p>
+					</c:if>
 			<c:forEach var="actor" items="${film.actors}">
 				<li><strong>${actor.firstName} ${actor.lastName}</strong> (Actor Id: ${actor.actorId})</li>
 				
 			</c:forEach>
 		</c:forEach>
+	
 		</c:when>
 				
 		
@@ -44,5 +48,7 @@
 		</c:otherwise>
 
 	</c:choose>
+	
+	
 </body>
 </html>
