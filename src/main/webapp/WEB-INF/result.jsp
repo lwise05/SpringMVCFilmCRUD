@@ -77,6 +77,7 @@
 	</select><br> 
 	<input type="submit" value="Update Film" />
 	</c:when>
+	
 	</c:choose>
 	</form>
 	</div>
