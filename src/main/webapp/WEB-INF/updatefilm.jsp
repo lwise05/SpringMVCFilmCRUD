@@ -10,41 +10,73 @@
 <body>
 	<h2>Update film</h2>
 
-	<form action="UpdateFilm.do" method="POST">
-	<c:choose>
-	<c:when test="${! empty film}">
-	<label for="filmTitle">Film Title: </label> 
-	<input type="text" name="filmTitle" value="${film.filmTitle}"> <br>
-	<label for="filmDesc">Film Description: </label> <br>
-	<input type="text" name="filmDesc" value="${film.filmDesc}"><br>
-	<label for="releaseYear">Release Year: </label>
-	<input type="text" name="releaseYear" value="${film.releaseYear}"> <br> 
-	<label for="langId">Language Id: </label> 
-	<select name="langId" id="langId">
-		<option value="1">1: English</option>
-		<option value="2">2: Italian</option>
-		<option value="3">3: Japanese</option>
-		<option value="4">4: Mandarin</option>
-		<option value="5">5: French</option>
-		<option value="6">6: German</option>
-	</select> <br> 
-	<label for="rentDur">Rental Duration: </label> 
-	<input type="text" name="rentDur" value="${film.rentDur}"> <br> 
-	<label for="rentRate">Rental Rate: </label> 
-	<input type="text" name="rentRate" value="${film.rentRate}"> <br> 
-	<label for="filmLength">Film Length: </label> 
-	<input type="text" name="filmLength" value="${film.filmLength}"> <br> 
-	<label for="replCost">Replacement Cost: </label> 
-	<input type="text" name="replCost" value="${film.replCost}"> <br> 
-	<label for="filmRating">Film Rating: </label> 
-	<select name="filmRating" id="filmRating">
-		<option value="G">G</option>
-		<option value="PG">PG</option>
-		<option value="PG13">PG13</option>
-		<option value="NC17">NC17</option>
-		<option value="R">R</option>
-	</select><br> <input type="submit" value="Update Film" />
-	</c:when>
+<form action="UpdateFilm.do" method="POST">
+		<c:choose>
+		
+		
+		
+<c:when test="${! empty film}">
+				<h4>Title: ${film.filmTitle}</h4>
+				<li>Film Id: ${film.filmId}</li>
+				<li>Description: ${film.filmDesc}</li>
+				<li>Release Year: ${film.releaseYear}</li>
+				<li>Language: ${film.languageName}</li>
+				<li>Language ID: ${film.langId}</li>
+				<li>Rental Duration: ${film.rentDur}</li>
+				<li>Rental Rate: ${film.rentRate}</li>
+				<li>Length: ${film.filmLength}</li>
+				<li>Replacement Cost: ${film.replCost}</li>
+				<li>Rating: ${film.filmRating}</li>
+				<li>Special Features: ${film.specFeat}</li>
+				<li>Category:${film.categories}</li>
+				
+			</c:when>
+
+			<c:when test="${film.filmId > 1000}">
+				<input type="hidden" value="${film.filmId}" name="filmId">
+	
+	Title: <input type="text" name="filmTitle" value="${film.filmTitle}"
+					required>
+				<br>
+	Description: <input type="text" name="filmDesc"
+					value="${film.filmDesc}" required>
+				<br>
+	Release Year:<input type="text" name="releaseYear"
+					value="${film.releaseYear}" required>
+				<br> 
+	Language Id: <select name="langId" id="langId">
+					<option value="1">1: English</option>
+					<option value="2">2: Italian</option>
+					<option value="3">3: Japanese</option>
+					<option value="4">4: Mandarin</option>
+					<option value="5">5: French</option>
+					<option value="6">6: German</option>
+				</select>
+				<br> 
+	Rental Duration: <input type="number" name="rentDur"
+					value="${film.rentDur}" MIN="0" MAX="250" required>
+				<br> 
+	Rental Rate: <input type="text" name="rentRate"
+					value="${film.rentRate}" required>
+				<br> 
+	Film length: <input type="text" name="filmLength"
+					value="${film.filmLength}" required> minutes <br> 
+	Replacement Cost: $<input type="text" name="replCost"
+					value="${film.replCost}" required>
+				<br> 
+	Film Rating: <select name="filmRating" id="filmRating">
+					<option value="G">G</option>
+					<option value="PG">PG</option>
+					<option value="PG13">PG13</option>
+					<option value="NC17">NC17</option>
+					<option value="R">R</option>
+				</select>
+				<br>
+				<input type="submit" value="Update Film" />
+			</c:when>
+
+
+
 	<c:when test="${empty film }">
 	<p>film not found</p>
 	</c:when>

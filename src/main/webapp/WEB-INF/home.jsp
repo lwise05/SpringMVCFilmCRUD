@@ -65,7 +65,10 @@
 		<input type="submit" value="Delete Film" />
 	</form>	</div>
 	
-		
+	<!-- <form action="UpdateFilm.do" method="POST">
+	Update film by film id: <input type="text" name="filmId" />
+	<input type="submit" value="Update Film"/>
+	</form> -->
 <!-- 	<h4>Click here to delete film.</h4>
 	<a href="/jsp/DeleteFilm.jsp" target="_blank" class="btn-btn">
 	<button> Delete Film </button></a> -->

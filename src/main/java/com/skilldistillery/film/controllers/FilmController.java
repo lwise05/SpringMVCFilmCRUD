@@ -94,6 +94,9 @@ public class FilmController {
 		}
 		return mv;
 	}
+
+	
+	
 //		mv.setViewName("updatefilm");
 //		if(updatedFilm !=null) {
 //		mv.addObject("film", updatedFilm);
@@ -101,13 +104,13 @@ public class FilmController {
 //		redirect.addFlashAttribute("film", tempFilm);
 //		}
 
-	@RequestMapping(path = "UpdateFilm.do", method = RequestMethod.GET)
-	public ModelAndView filmUpdated(Film film) {
-		ModelAndView mv = new ModelAndView();
-		mv.addObject("film", film);
-		mv.setViewName("updatefilm");
-		return mv;
-	}
+//	@RequestMapping(path = "UpdateFilm.do", method = RequestMethod.GET)
+//	public ModelAndView filmUpdated(Film film) {
+//		ModelAndView mv = new ModelAndView();
+//		mv.addObject("film", film);
+//		mv.setViewName("updatefilm");
+//		return mv;
+//	}
 
 	//User story 5
 	@RequestMapping(path = "GetFilmByKeyWord.do", params = "keyword", method = RequestMethod.GET)

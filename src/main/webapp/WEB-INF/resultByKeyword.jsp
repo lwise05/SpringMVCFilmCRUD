@@ -45,7 +45,7 @@
 
 		<c:otherwise>
 			<p>No films found with keyword</p>
-			<a href="home.do">Return to home page</a>
+			
 		</c:otherwise>
 
 	</c:choose>
@@ -53,6 +53,7 @@
 		Delete film by film id: <input type="text" name="filmId" /> 
 		<input type="submit" value="Delete Film" />
 	</form>
-	
+	<p>If you would like to update a film, please return to the home page and enter in the film id.</p>
+	<a href="home.do">Return to home page</a>
 </body>
 </html>
