@@ -45,6 +45,9 @@
 		<option value="R">R</option>
 	</select><br> <input type="submit" value="Update Film" />
 	</c:when>
+	<c:when test="${empty film }">
+	<p>film not found</p>
+	</c:when>
 	</c:choose>
 	</form>
 	

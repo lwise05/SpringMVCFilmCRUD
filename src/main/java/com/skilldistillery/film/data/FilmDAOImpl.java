@@ -178,6 +178,7 @@ public class FilmDAOImpl implements FilmDAO {
 					query+= " VALUES (?,?,?,?,?,?,?,?,?,?)";
 
 			PreparedStatement stmt = conn.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+	
 			stmt.setString(1, newFilm.getFilmTitle());
 			stmt.setString(2, newFilm.getFilmDesc());
 			stmt.setInt(3, newFilm.getReleaseYear());

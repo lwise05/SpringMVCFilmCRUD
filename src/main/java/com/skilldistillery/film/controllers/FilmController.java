@@ -70,10 +70,15 @@ public class FilmController {
 	public ModelAndView updateFilm (Film film, RedirectAttributes redirect) {
 		ModelAndView mv = new ModelAndView();
 		Film updatedFilm = filmDao.updateFilm(film);
-		if(updatedFilm !=null) {
-		redirect.addFlashAttribute("film", filmDao.findFilmById(updatedFilm.getFilmId()));
-		mv.setViewName("redirect:UpdateFilm.do");
-		}
+		
+
+//		mv.setViewName("updatefilm");
+//		if(updatedFilm !=null) {
+//		mv.addObject("film", updatedFilm);
+//		Film tempFilm = updatedFilm;
+//		redirect.addFlashAttribute("film", tempFilm);
+		mv.setViewName("result");
+//		}
 		return mv;
 	}
 	@RequestMapping(path = "UpdateFilm.do", method= RequestMethod.GET)
